@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sys_purview_form_view" model="ir.ui.view">
+        <field name="name">api权限</field>
+        <field name="model">sys.purview</field>
+        <field name="arch" type="xml">
+            <form string="purview">
+                <sheet>
+                    <!-- 内容放在这里： -->
+                    <group name="group_role">
+                        <field name="sp_name"/>
+                        <field name="sp_apipath"/>
+                        <field name="sp_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sys_purview_tree_view" model="ir.ui.view">
+        <field name="name">api权限</field>
+        <field name="model">sys.purview</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sp_name"/>
+                <field name="sp_apipath"/>
+                <field name="sp_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sys_purview_action_window" model="ir.actions.act_window">
+        <field name="name">api权限</field>
+        <field name="res_model">sys.purview</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

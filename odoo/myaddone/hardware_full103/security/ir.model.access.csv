@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_full103_env_admin,demo.env,model_full103_env,hardware_base.group_hardware_admin,1,1,1,1
+access_full103_relay_admin,demo.led,model_full103_relay,hardware_base.group_hardware_admin,1,1,1,1
+
+
+access_full103_env_full103_view,demo.env,model_full103_env,hardware_full103.group_full103_view,1,1,0,0
+access_full103_relay_full103_view,demo.led,model_full103_relay,hardware_full103.group_full103_view,1,1,0,0

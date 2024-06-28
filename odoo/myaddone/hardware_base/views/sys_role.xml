@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sys_role_form_view" model="ir.ui.view">
+        <field name="name">角色</field>
+        <field name="model">sys.role</field>
+        <field name="arch" type="xml">
+            <form string="Role">
+                <sheet>
+                    <!-- 内容放在这里： -->
+                    <group name="group_role">
+                        <field name="sr_name"/>
+                    </group>
+                    <notebook>
+                        <page string="用户">
+                            <field name="user_ids" />
+                        </page>
+                        <page string="API权限项">
+                            <field name="purview_ids" />
+                        </page>
+                        <page string="菜单权限">
+                            <field name="menu_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sys_role_tree_view" model="ir.ui.view">
+        <field name="name">角色</field>
+        <field name="model">sys.role</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sr_name"/>
+                <field name="user_ids" widget="many2many_tags"/>
+                <field name="purview_ids" widget="many2many_tags"/>
+                <field name="menu_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sys_role_action_window" model="ir.actions.act_window">
+        <field name="name">角色</field>
+        <field name="res_model">sys.role</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

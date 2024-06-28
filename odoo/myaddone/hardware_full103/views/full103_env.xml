@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="full103_env_form_view" model="ir.ui.view">
+        <field name="name">环境数据</field>
+        <field name="model">full103.env</field>
+        <field name="arch" type="xml">
+            <form string="full103_env" create="false" edit="false">
+                <header>
+                    <!-- 此处添加按钮 -->
+                    <button name="button_update_env" type="object" string="刷新环境数据" />
+                </header>
+                <sheet>
+                    <!-- 内容放在这里： -->
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="fe_equip_id"/>
+                            <field name="last_modify_time"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="fe_temperature"/>
+                            <field name="fe_humidity"/>
+                        </group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="full103_env_tree_view" model="ir.ui.view">
+        <field name="name">环境数据</field>
+        <field name="model">full103.env</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="fe_equip_id" widget="many2one_tags"/>
+                <field name="fe_equipcode"/>
+                <field name="fe_temperature"/>
+                <field name="fe_humidity"/>
+                <field name="last_modify_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="full103_env_search_view" model="ir.ui.view">
+        <field name="name">环境数据</field>
+        <field name="model">full103.env</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="fe_equipcode" />
+            </search>
+        </field>
+    </record>
+
+    <record id="full103_env_action_window" model="ir.actions.act_window">
+        <field name="name">环境数据</field>
+        <field name="res_model">full103.env</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

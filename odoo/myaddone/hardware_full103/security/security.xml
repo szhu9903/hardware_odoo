@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--
+            field:
+                name: 组名称
+                comment: 描述
+                category_id: 关联我们创建的应用ID
+                implied_ids: 继承组
+                users: 添加用户
+        -->
+        <record id="hardware_full103_category" model="ir.module.category">
+            <field name="name">Full103权限组</field>
+            <field name="parent_id" ref="hardware_base.hardware_category"/>
+        </record>
+
+
+        <record id="group_full103_view" model="res.groups">
+            <field name="category_id" ref="hardware_full103_category"/>
+            <field name="name">Full103权限</field>
+            <field name="comment">访问Full103设备</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+
+<!--        <record id="group_hardware_admin" model="res.groups">-->
+<!--            &lt;!&ndash;指定该group属于哪一个category&ndash;&gt;-->
+<!--            <field name="category_id" ref="hardware_category"/>-->
+<!--            <field name="name">管理员</field>-->
+<!--            <field name="comment">hardware管理</field>-->
+<!--            &lt;!&ndash;定义该用户组继承自那些group，也就是说这个组也拥有这些继承组的权限&ndash;&gt;-->
+<!--            <field name="implied_ids" eval="[(4, ref('group_hardware_view'))]" />-->
+<!--            &lt;!&ndash;为该用户组添加用户&ndash;&gt;-->
+<!--            <field name="users"-->
+<!--                   eval="[(4, ref('base.user_root')),-->
+<!--                   (4, ref('base.user_admin'))]" />-->
+<!--        </record>-->
+<!--    </data>-->
+
+<!--      用户行及权限 如数据用户区域筛选  -->
+<!--    <data noupdate="0">-->
+<!--        <record id="hardware_user_rule" model="ir.rule">-->
+<!--            <field name="name">设备访问</field>-->
+<!--            <field name="model_id" ref="model_hardware_hardware_equip" />-->
+<!--            <field name="domain_force">-->
+<!--                [('he_effect', '=', 1)]-->
+<!--            </field>-->
+<!--            <field name="groups" eval="[(4, ref('group_hardware_view'))]" />-->
+<!--        </record>-->
+    </data>
+
+</odoo>

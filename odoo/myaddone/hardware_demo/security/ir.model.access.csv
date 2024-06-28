@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_demo_env_admin,demo.env,model_demo_env,hardware_base.group_hardware_admin,1,1,1,1
+access_demo_led_admin,demo.led,model_demo_led,hardware_base.group_hardware_admin,1,1,1,1
+
+access_demo_env_demo_admin,demo.env,model_demo_env,hardware_demo.group_demo_view,1,1,0,0
+access_demo_led_demo_view,demo.led,model_demo_led,hardware_demo.group_demo_view,1,1,0,0

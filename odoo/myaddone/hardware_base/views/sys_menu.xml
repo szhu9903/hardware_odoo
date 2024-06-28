@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sys_menu_form_view" model="ir.ui.view">
+        <field name="name">后台管理菜单</field>
+        <field name="model">sys.menu</field>
+        <field name="arch" type="xml">
+            <form string="Role">
+                <sheet>
+                    <!-- 内容放在这里： -->
+                    <group name="group_role">
+                        <field name="sm_name"/>
+                        <field name="sm_menupath"/>
+                        <field name="sm_menuup_id" widget="many2one_tags"/>
+                        <field name="sm_sort"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sys_menu_tree_view" model="ir.ui.view">
+        <field name="name">后台管理菜单</field>
+        <field name="model">sys.menu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sm_name"/>
+                <field name="sm_menupath"/>
+                <field name="sm_menuup_id" widget="many2one_tags"/>
+                <field name="sm_sort"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sys_menu_action_window" model="ir.actions.act_window">
+        <field name="name">后台管理菜单</field>
+        <field name="res_model">sys.menu</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

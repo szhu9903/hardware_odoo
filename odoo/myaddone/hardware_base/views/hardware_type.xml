@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hardware_type_form_view" model="ir.ui.view">
+        <field name="name">设备类型</field>
+        <field name="model">hardware.type</field>
+        <field name="arch" type="xml">
+            <form string="hardware_type">
+                <sheet>
+                    <!-- 内容放在这里： -->
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="ht_name"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="ht_code_down"/>
+                            <field name="ht_code_up"/>
+                        </group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="hardware_type_tree_view" model="ir.ui.view">
+        <field name="name">设备类型</field>
+        <field name="model">hardware.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ht_name"/>
+                <field name="ht_code_down"/>
+                <field name="ht_code_up" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="hardware_type_search_view" model="ir.ui.view">
+        <field name="name">类型筛选</field>
+        <field name="model">hardware.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ht_name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="hardware_type_action_window" model="ir.actions.act_window">
+        <field name="name">设备类型</field>
+        <field name="res_model">hardware.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

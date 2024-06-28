@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--
+        id: 菜单唯一标识
+        name: 菜单名称
+        parent: 上级菜单
+        action: 选中菜单要跳转的页面，关联到你创建的视图的ir.actions.act_window入口的ID
+        sequence: 顺序
+    -->
+    <menuitem id="menu_hardware_full103" name="Full103设备" parent="hardware_base.menu_hardware" sequence="2"/>
+        <menuitem id="menu_hardware_full103_env" name="环境数据" parent="menu_hardware_full103" action="full103_env_action_window" sequence="0"/>
+        <menuitem id="menu_hardware_full103_relay" name="开关控制" parent="menu_hardware_full103" action="full103_relay_action_window" sequence="1"/>
+</odoo>

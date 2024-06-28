@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!--    <record id="view_form_hardware_configvar" model="ir.ui.view">-->
+<!--        <field name="name">设备类型</field>-->
+<!--        <field name="model">hardware.hardware.configvar</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="configvar">-->
+<!--                <sheet>-->
+<!--                    &lt;!&ndash; 内容放在这里： &ndash;&gt;-->
+<!--                    <group name="group_top">-->
+<!--                        <group name="group_left">-->
+<!--                            <field name="ht_name"/>-->
+<!--                        </group>-->
+<!--                        <group name="group_right">-->
+<!--                            <field name="ht_code_down"/>-->
+<!--                            <field name="ht_code_up"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="demo_led_tree_view" model="ir.ui.view">
+        <field name="name">LED控制</field>
+        <field name="model">demo.led</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="dl_equip_id" widget="many2one_tags"/>
+                <field name="dl_equipcode"/>
+                <field name="dl_switch"/>
+                <field name="dl_r"/>
+                <field name="dl_g"/>
+                <field name="dl_b"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="demo_led_search_view" model="ir.ui.view">
+        <field name="name">LED控制</field>
+        <field name="model">demo.led</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="dl_equipcode" />
+            </search>
+        </field>
+    </record>
+
+    <record id="demo_led_action_window" model="ir.actions.act_window">
+        <field name="name">LED控制</field>
+        <field name="res_model">demo.led</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
+

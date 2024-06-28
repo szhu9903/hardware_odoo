@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sys_user_form_view" model="ir.ui.view">
+        <field name="name">用户信息</field>
+        <field name="model">sys.user</field>
+        <field name="arch" type="xml">
+            <form string="User">
+
+                <header>
+                    <button name="button_modify_pwd" type="object" string="修改密码"/>
+                </header>
+                <sheet>
+                    <!-- 内容放在这里： -->
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="su_account"/>
+                            <field name="su_pwd" attrs="{'invisible': [('id', '>', 0)]}"/>
+                            <field name="su_sex"/>
+                            <field name="su_isadmin"/>
+                            <field name="su_delflag"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="su_username"/>
+                            <field name="su_userphoto" widget='image' class="oe_avatar oe_left"/>
+                            <field name="su_phone"/>
+                            <field name="su_email"/>
+                            <field name="su_odoouser_id" widget="many2one_tags"/>
+                        </group>
+
+                    </group>
+                    <notebook>
+                        <page string="角色">
+                            <field name="role_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sys_user_tree_view" model="ir.ui.view">
+        <field name="name">用户信息</field>
+        <field name="model">sys.user</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="su_username"/>
+                <field name="su_account"/>
+                <field name="role_ids" widget="many2many_tags"/>
+                <field name="su_sex"/>
+                <field name="su_userphoto"/>
+                <field name="su_phone"/>
+                <field name="su_email"/>
+                <field name="su_odoouser_id" widget="many2one_tags" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="sys_user_search_view" model="ir.ui.view">
+        <field name="name">用户筛选</field>
+        <field name="model">sys.user</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="su_username" />
+                <filter name="filter_isadmin" string="后台用户" domain="[('su_isadmin','=',1)]" />
+                <filter name="filter_delflag" string="有效用户" domain="[('su_delflag','=',0)]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="sys_user_action_window" model="ir.actions.act_window">
+        <field name="name">用户信息</field>
+        <field name="res_model">sys.user</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

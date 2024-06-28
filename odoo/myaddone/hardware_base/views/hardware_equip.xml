@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hardware_equip_form_view" model="ir.ui.view">
+        <field name="name">设备表单</field>
+        <field name="model">hardware.equip</field>
+        <field name="arch" type="xml">
+            <form string="Equip">
+                <header>
+                    <!-- 此处添加按钮 -->
+<!--                    <button name="button_point_code" type="object" string="分配编号" attrs="{'invisible': [('he_effect', '=', 'NORMAL')]}" />-->
+                    <button name="%(hardware_base.assign_code_wizard_action)d"
+                            type="action"
+                            string="分配编号"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('he_effect', '=', 'NORMAL')]}"
+                            context="{'action_equip_type': he_type_id, 'action_equip_code': he_num}"/>
+                </header>
+                <sheet>
+                    <!-- 内容放在这里： -->
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="he_name"/>
+                            <field name="he_num"/>
+                            <field name="he_type_id" widget="many2one_tags" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="he_equipstatus" readonly="1"/>
+                            <field name="he_starttype"/>
+                            <field name="he_effect" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="hardware_equip_tree_view" model="ir.ui.view">
+        <field name="name">设备列表</field>
+        <field name="model">hardware.equip</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="he_name"/>
+                <field name="he_num"/>
+                <field name="he_type_id" widget="many2one_tags" />
+                <field name="he_equipstatus" />
+                <field name="he_starttype"/>
+                <field name="he_effect"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hardware_equip_pivot_view" model="ir.ui.view">
+        <field name="name">设备透视表</field>
+        <field name="model">hardware.equip</field>
+        <field name="arch" type="xml">
+            <pivot disable_linking="True" display_quantity="False" default_order="he_type_id asc">
+                <field name="he_type_id" type="row"/>
+                <field name="he_equipstatus" type="col"/>
+                <field name="he_num" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="hardware_equip_search_view" model="ir.ui.view">
+        <field name="name">设备筛选</field>
+        <field name="model">hardware.equip</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="he_name" />
+                <filter name="filter_equip_linked" string="在线设备" domain="[('he_equipstatus','=','LINKED')]" />
+                <filter name="filter_effect" string="有效设备" domain="[('he_effect','=',1)]" />
+                <filter name="filter_noeffect" string="通用设备" domain="[('he_effect','=',0)]" />
+
+                <group expand="1">
+                    <filter name="group_type" string="设备类型" context="{'group_by': 'he_type_id'}" />
+                    <filter name="group_status" string="设备状态" context="{'group_by': 'he_equipstatus'}" />
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="hardware_equip_action_window" model="ir.actions.act_window">
+        <field name="name">设备</field>
+        <field name="res_model">hardware.equip</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--
+        id: 菜单唯一标识
+        name: 菜单名称
+        parent: 上级菜单
+        action: 选中菜单要跳转的页面，关联到你创建的视图的ir.actions.act_window入口的ID
+        sequence: 顺序
+    -->
+    <menuitem id="menu_hardware" name="设备控制系统" sequence="0" web_icon="hardware_base,static/description/icon.png"/>
+        <menuitem id="menu_hardware_hardware" name="基础设备管理" parent="menu_hardware" sequence="0"/>
+            <menuitem id="menu_hardware_hardware_equip" name="设备列表" parent="menu_hardware_hardware" action="hardware_equip_action_window" sequence="0"/>
+            <menuitem id="menu_hardware_hardware_type" name="设备类型" parent="menu_hardware_hardware" action="hardware_type_action_window" sequence="1"/>
+            <menuitem id="menu_hardware_hardware_configvar" name="设备配置项" parent="menu_hardware_hardware" action="hardware_configvar_action_window" sequence="2"/>
+
+        <menuitem id="menu_hardware_sys" name="基础信息" parent="menu_hardware" sequence="1"/>
+            <menuitem id="menu_hardware_sys_user" name="用户信息" parent="menu_hardware_sys" action="sys_user_action_window" sequence="0"/>
+            <menuitem id="menu_hardware_sys_role" name="角色信息" parent="menu_hardware_sys" action="sys_role_action_window" sequence="1"/>
+            <menuitem id="menu_hardware_sys_purview" name="api权限" parent="menu_hardware_sys" action="sys_purview_action_window" sequence="2"/>
+            <menuitem id="menu_hardware_sys_menu" name="后台管理菜单" parent="menu_hardware_sys" action="sys_menu_action_window" sequence="3"/>
+
+</odoo>

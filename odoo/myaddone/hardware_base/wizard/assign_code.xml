@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="assign_code_form_view" model="ir.ui.view">
+        <field name="name">分配设备</field>
+        <field name="model">assign.code</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="assign_code_id" options="{'no_create': True, 'no_open': True}"/>
+                </group>
+                <footer>
+                    <button name="button_assign_new_code" type="object" string="分配" class="oe_highlight"/>
+                    <button string="取消" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="assign_code_wizard_action" model="ir.actions.act_window">
+        <field name="name">分配设备</field>
+        <field name="res_model">assign.code</field>
+        <field name="view_mode">form</field>
+<!--        <field name="binding_model_id" ref="hardware_base.model_hardware_equip" />-->
+<!--        <field name="binding_view_types">form,list</field>-->
+        <field name="target">new</field>
+        <field name="context">{'default_test_pass_data': 'hello 123'}</field>
+    </record>
+
+
+
+</odoo>

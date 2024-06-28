@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--
+        id: 菜单唯一标识
+        name: 菜单名称
+        parent: 上级菜单
+        action: 选中菜单要跳转的页面，关联到你创建的视图的ir.actions.act_window入口的ID
+        sequence: 顺序
+    -->
+    <menuitem id="menu_hardware_demo" name="Demo设备" parent="hardware_base.menu_hardware" sequence="2"/>
+        <menuitem id="menu_hardware_demo_env" name="环境数据" parent="menu_hardware_demo" action="demo_env_action_window" sequence="0"/>
+        <menuitem id="menu_hardware_demo_led" name="LED控制" parent="menu_hardware_demo" action="demo_led_action_window" sequence="1"/>
+</odoo>
